@@ -34,15 +34,29 @@ class PreferenciasUsuario {
   set token( String value ) {
     _prefs.setString('token', value);
   }
-  
 
-  // GET y SET de la última página
-  get ultimaPagina {
-    return _prefs.getString('ultimaPagina') ?? 'login';
+  get id {
+    return _prefs.getString('id') ?? '';
   }
 
-  set ultimaPagina( String value ) {
-    _prefs.setString('ultimaPagina', value);
+  set id( String value ) {
+    _prefs.setString('id', value);
+  }
+
+    get nombre {
+    return _prefs.getString('id') ?? '';
+  }
+
+  set nombre( String value ) {
+    _prefs.setString('id', value);
+  }
+
+    get urlPhoto {
+    return _prefs.getString('id') ?? '';
+  }
+
+  set urlPhoto( String value ) {
+    _prefs.setString('id', value);
   }
 
 }

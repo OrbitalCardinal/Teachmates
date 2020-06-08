@@ -333,3 +333,72 @@ class _HeaderWaveGradientPainter extends CustomPainter {
   }
 
 }
+
+//
+ class HeaderAccountGradient extends StatelessWidget {
+  
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      child: CustomPaint(
+        painter: _HeaderAccountGradientPainter(),
+      ),
+    );
+  }
+}
+
+class _HeaderAccountGradientPainter extends CustomPainter {
+  
+  @override
+  void paint(Canvas canvas, Size size) {
+    
+    final Rect rect = new Rect.fromCircle(
+      center: Offset(0.0, 55.0),
+      radius: 180
+    );
+
+    final Gradient gradiente = new LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: <Color>[
+        // Colors.indigo[600],
+        Colors.indigo[400],
+        Color(0xff1976d2),
+      ],
+      stops: [
+        0.3,
+        // 0.5,
+        1.0,
+      ]
+    );
+
+
+    final lapiz = new Paint()..shader = gradiente.createShader(rect);
+
+    // Propiedades
+    // lapiz.color = Color(0xff615AAB);
+    // lapiz.color = Colors.red;
+    lapiz.style = PaintingStyle.fill; // .fill .stroke
+    lapiz.strokeWidth = 20;
+
+    final path = new Path();
+
+    // Dibujar con el path y el lapiz
+    path.lineTo( 0, size.height * 0.272 );
+    path.lineTo( size.width , size.height * 0.272 );
+    path.lineTo( size.width, 0 );
+
+  
+
+
+    canvas.drawPath(path, lapiz );
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
+
+}

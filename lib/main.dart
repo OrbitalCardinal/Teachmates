@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:teachmate/src/bloc/provider.dart';
 import 'package:teachmate/src/pages/home.dart';
 import 'package:teachmate/src/pages/login.dart';
@@ -18,11 +19,11 @@ class MyApp extends StatelessWidget {
     final prefs = new PreferenciasUsuario();
     print( prefs.token );
     String auth;
-    if(prefs.token != Null) {auth = 'home';} else { auth = 'login';}
+    if(prefs.token != null) {auth = 'home';} else { auth = 'login';}
     return Provider(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Material App',
+        title: 'Teachmates',
         initialRoute: auth,
         routes: {
           'login'    : (BuildContext context) => LoginPage(),

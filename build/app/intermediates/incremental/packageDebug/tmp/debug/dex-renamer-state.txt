@@ -1,4 +1,4 @@
-#Fri Jun 05 21:51:03 CDT 2020
+#Sun Jun 07 16:38:53 CDT 2020
 base.0=C\:\\Users\\Gerardo\\Desktop\\Teachmates\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
