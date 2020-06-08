@@ -5,6 +5,16 @@ UsuarioModel usuarioModelFromJson(String str) => UsuarioModel.fromJson(json.deco
 String usuarioModelToJson(UsuarioModel data) => json.encode(data.toJson());
 
 class UsuarioModel {
+    String id;
+    bool asesor;
+    String correo;
+    // Materias materias;
+    String nombre;
+    String urlPhoto;
+    String ocupacion;
+    double puntuacionAsesor;
+    double puntuacionAsesorado;
+    
     UsuarioModel({
         this.id,
         this.asesor,
@@ -12,14 +22,12 @@ class UsuarioModel {
         // this.materias,
         this.nombre,
         this.urlPhoto,
+        this.ocupacion,
+        this.puntuacionAsesor = 0,
+        this.puntuacionAsesorado = 0
     });
 
-    String id;
-    bool asesor;
-    String correo;
-    // Materias materias;
-    String nombre;
-    String urlPhoto;
+    
 
     factory UsuarioModel.fromJson(Map<String, dynamic> json) => UsuarioModel(
         id: json["id"],
@@ -39,22 +47,12 @@ class UsuarioModel {
     };
 }
 
-class Materias {
-    Materias({
-        this.principal,
-        this.secundarias,
-    });
-
-    String principal;
-    List<String> secundarias;
-
-    // factory Materias.fromJson(Map<String, dynamic> json) => Materias(
-    //     principal: json["principal"],
-    //     secundarias: List<String>.from(json["secundarias"].map((x) => x)),
-    // );
-
-    // Map<String, dynamic> toJson() => {
-    //     "principal": principal,
-    //     "secundarias": List<dynamic>.from(secundarias.map((x) => x)),
-    // };
-}
+List<UsuarioModel> usuarios = [
+  UsuarioModel(id: "2", asesor: false, correo: "asiufndfmu", nombre: "Isaac Martinez",  urlPhoto: "oalmisu", ocupacion: "Estudiante"),
+  UsuarioModel(id: "3", asesor: false, correo: "asiufndfmu", nombre: "Ivonne Alvarez",  urlPhoto: "oalmisu", ocupacion: "Maestro"),
+  UsuarioModel(id: "4", asesor: false, correo: "asiufndfmu", nombre: "Hector Lopez",    urlPhoto: "oalmisu", ocupacion: "Doctor"),
+  UsuarioModel(id: "5", asesor: false, correo: "asiufndfmu", nombre: "Fatima Marcela",  urlPhoto: "oalmisu", ocupacion: "Estudiante"),
+  UsuarioModel(id: "6", asesor: false, correo: "asiufndfmu", nombre: "Hugo Chavez",     urlPhoto: "oalmisu", ocupacion: "Estudiante"),
+  UsuarioModel(id: "7", asesor: false, correo: "asiufndfmu", nombre: "Emilio Padilla",  urlPhoto: "oalmisu", ocupacion: "Estudiante"),
+  UsuarioModel(id: "8", asesor: false, correo: "asiufndfmu", nombre: "Beatriz Gordillo",urlPhoto: "oalmisu", ocupacion: "Estudiante"),  
+];
