@@ -1,12 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:teachmate/src/widgets/tarjeta_vertical.dart';
 
 class InicioPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final size  = MediaQuery.of(context).size;
+    final double itemHeight = size.height / 4.80;
+    final double itemWidth = size.width / 1.8;
     return Scaffold(
       appBar: _crearAppBar(),
-      body: Center(
-        child: Text('Inicio'),
+      body: Container(
+        child: GridView.count(
+          padding: const EdgeInsets.all(20),
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 15,
+          childAspectRatio: (itemHeight/ itemWidth),
+          crossAxisCount: 2,
+          children: <Widget>[
+            crearTarjetaVertical(),
+            crearTarjetaVertical(),
+            crearTarjetaVertical(),
+            crearTarjetaVertical(),
+            crearTarjetaVertical(),
+            crearTarjetaVertical(),
+          ],
+        ),
       ),
     );
   }
@@ -21,7 +39,7 @@ class InicioPage extends StatelessWidget {
         ),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.search, color: Color(0xff5B5B5B), size: 25.0,),
+            icon: Icon(Icons.search, color: Color(0xff5B5B5B), size: 30.0,),
             onPressed: () {
 
             }

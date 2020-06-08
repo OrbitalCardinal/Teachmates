@@ -42,14 +42,14 @@ class RegistroPage extends StatelessWidget {
 
             SafeArea(
               child: Container(
-                height: 180.0,
+                height: 160.0,
               ),
             ),
 
             Container(
               width: size.width * 0.85,
-              margin: EdgeInsets.symmetric(vertical: 30.0),
-              padding: EdgeInsets.symmetric( vertical: 50.0 ),
+              margin: EdgeInsets.symmetric(vertical: 20.0),
+              padding: EdgeInsets.symmetric( vertical: 30.0 ),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(5.0),
@@ -64,11 +64,14 @@ class RegistroPage extends StatelessWidget {
               ),
               child: Column(
                 children: <Widget>[
-                 
+                  Text('Registro', style: TextStyle(color: Colors.black, fontSize: 20.0)),
+                  SizedBox( height: 20.0 ),
+                  _crearNombre( bloc ),
+                  SizedBox( height: 20.0 ),
                   _crearEmail( bloc ),
-                  SizedBox( height: 30.0 ),
+                  SizedBox( height: 20.0 ),
                   _crearPassword( bloc ),
-                  SizedBox( height: 30.0 ),
+                  SizedBox( height: 20.0 ),
                   _crearBoton( bloc )
                 ],
               ),
@@ -82,6 +85,35 @@ class RegistroPage extends StatelessWidget {
           ],
         ),
       )
+    );
+  }
+
+  Widget _crearNombre(LoginBloc bloc) {
+
+    return StreamBuilder(
+      stream: bloc.emailStream,
+      builder: (BuildContext context, AsyncSnapshot snapshot){
+        
+      return Container(
+        padding: EdgeInsets.symmetric(horizontal: 20.0),
+
+        child: TextField(
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(
+            border: new OutlineInputBorder(
+               borderRadius: const BorderRadius.all(
+                const Radius.circular(10.0),
+              ),
+            ),
+            hintText: 'Nombre Apellido',
+            labelText: 'Nombre',
+            errorText: snapshot.error
+          ),
+          onChanged: bloc.changeEmail,
+        ),
+
+      );
+      },
     );
   }
 

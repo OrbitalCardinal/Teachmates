@@ -1,13 +1,14 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:teachmate/src/preferencias_usuario/preferencias_usuario.dart';
 import 'package:http/http.dart' as http;
+
 
 class UsuarioProvider {
 
   final String _firebaseKey = 'AIzaSyDxwmBHhVAVch9ZskRWqPGIMKalJWtmVzY';
   final _prefs = new PreferenciasUsuario();
-
 
   Future<Map<String, dynamic>> login( String email, String password) async {
 
@@ -29,14 +30,13 @@ class UsuarioProvider {
     if ( decodedResp.containsKey('idToken') ) {
       
       _prefs.token = decodedResp['idToken'];
+      _prefs.id = decodedResp['localId'];
 
       return { 'ok': true, 'token': decodedResp['idToken'] };
     } else {
       return { 'ok': false, 'mensaje': decodedResp['error']['message'] };
     }
-
   }
-
 
   Future<Map<String, dynamic>> nuevoUsuario( String email, String password ) async {
 
@@ -58,15 +58,11 @@ class UsuarioProvider {
     if ( decodedResp.containsKey('idToken') ) {
       
       _prefs.token = decodedResp['idToken'];
+      _prefs.id = decodedResp['localId'];
 
       return { 'ok': true, 'token': decodedResp['idToken'] };
     } else {
       return { 'ok': false, 'mensaje': decodedResp['error']['message'] };
     }
-
-
   }
-
-
-
 }

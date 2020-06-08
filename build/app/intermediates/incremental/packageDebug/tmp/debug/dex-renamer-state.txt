@@ -1,4 +1,4 @@
-#Sun Jun 07 19:59:07 CDT 2020
+#Sun Jun 07 20:15:05 CDT 2020
 base.0=/home/orbital/Documentos/CODE/repos/Teachmates/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
