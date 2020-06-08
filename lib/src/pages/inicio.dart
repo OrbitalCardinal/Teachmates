@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teachmate/src/models/usuario_model.dart';
 import 'package:teachmate/src/widgets/tarjeta_vertical.dart';
 
 class InicioPage extends StatelessWidget {
@@ -12,20 +13,16 @@ class InicioPage extends StatelessWidget {
       body: Container(
         child: GridView.count(
           padding: const EdgeInsets.all(20),
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20,
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 15,
           childAspectRatio: (itemHeight/ itemWidth),
           crossAxisCount: 2,
-          children: <Widget>[
-            crearTarjetaVertical(),
-            crearTarjetaVertical(),
-            crearTarjetaVertical(),
-            crearTarjetaVertical(),
-            crearTarjetaVertical(),
-            crearTarjetaVertical(),
-          ],
+          children: List.generate(6, (index) {
+            return crearTarjetaVertical(usuarios[index]);
+          }
         ),
       ),
+    )
     );
   }
 

@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:teachmate/src/models/chat_model.dart';
+import 'package:teachmate/src/models/mensaje_model.dart';
+import 'package:teachmate/src/models/salaChat_model.dart';
+import 'package:teachmate/src/models/usuario_model.dart';
 import 'package:teachmate/src/pages/chat.dart';
 
 
 
+class MensajesPage extends StatefulWidget {
+  @override
+  _MensajesPageState createState() => _MensajesPageState();
+  List<MensajeModel> listaMensajes = List.from(mensajes);
+}
 
-
-class MensajesPage extends StatelessWidget {
+class _MensajesPageState extends State<MensajesPage> {
+  int chatCounter = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,13 +22,13 @@ class MensajesPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: <Widget>[
-            Chats(),
+            Chats(widget.listaMensajes),
           ]
         )
       ),
     );
   }
-  
+
   Widget _crearAppBar() {
     return PreferredSize(
       child: AppBar(
@@ -33,9 +41,8 @@ class MensajesPage extends StatelessWidget {
       preferredSize: Size.fromHeight(60.0)
     );
   }
-}
 
-Widget Chats() {
+  Widget Chats(List<MensajeModel> mensajes) {
   return Expanded(
       child: Container(
       height: 300.0,
@@ -46,8 +53,36 @@ Widget Chats() {
         itemCount: chats.length,
         itemBuilder: (BuildContext context, int index) {
           final ChatInfo chat = chats[index];
+          final SalaChatModel sala = salas[index];
+          List<MensajeModel> listaMensajes = [];
+          dynamic nombre;
+          String mensajeId;
+          for(var n in usuarios) {
+            if(n.id == sala.idUsuario) { 
+              nombre = n.nombre;
+            }
+          }
+          
+          for(var mensaje in mensajes) {
+            if(mensaje.idSalaChat == sala.id) {
+              listaMensajes.add(mensaje);
+              mensajeId = mensaje.mensajeId;
+            }
+          }
+          
+          MensajeModel ultimoMensaje = listaMensajes[listaMensajes.length - 1];
+          
           return GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ChatPage(usuario: chat.nombre))),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_) => ChatPage(usuario: nombre, listaMensajes: listaMensajes, sala: sala)));
+              setState(() {
+                for(var mensaje in widget.listaMensajes) {
+                  if(mensajeId == mensaje.mensajeId) {
+                    mensaje.leido = true;
+                  }
+                }
+              });
+            } ,
               child: Container(
               margin: EdgeInsets.only(top: 5.0, bottom: 5.0, right: 10.0),
               padding: EdgeInsets.symmetric(horizontal: 20.0),
@@ -71,18 +106,18 @@ Widget Chats() {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[   
                             Text(
-                              chat.nombre,
+                              nombre,
                               style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 16.0)
                             ),
                             SizedBox(height: 5.0),
                             Container(
                               width: MediaQuery.of(context).size.width * 0.45,
                               child: Text(
-                                chat.miMensaje  ? "Tu: " + chat.texto : chat.texto,
+                                ultimoMensaje.idUsuario == miId  ? "Tu: " + ultimoMensaje.texto : ultimoMensaje.texto,
                                 style: TextStyle(
-                                  color: chat.leido ? Colors.blueGrey : Colors.black,
+                                  color: ultimoMensaje.leido || (ultimoMensaje.idUsuario == miId) ? Colors.blueGrey : Colors.black,
                                   fontSize: 13.0, 
-                                  fontWeight: chat.leido ? FontWeight.normal : FontWeight.w500
+                                  fontWeight: ultimoMensaje.leido ? FontWeight.normal : FontWeight.w500
                                   ),
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -93,15 +128,15 @@ Widget Chats() {
                     ),
                     Column(children: <Widget>[
                       Text(
-                        chat.hora.hour.toString() + ':' + chat.hora.minute.toString(),
+                        ultimoMensaje.fecha.hour.toString() + ':' + ultimoMensaje.fecha.minute.toString(),
                         style: TextStyle(
-                          color: !chat.leido ?  Colors.indigo[400] : Colors.grey
+                          color: ultimoMensaje.idUsuario != miId ?  Colors.indigo[400] : Colors.grey
                           )
                         ),
                       Icon(
-                        chat.miMensaje ? Icons.check: Icons.fiber_manual_record, 
+                        ultimoMensaje.idUsuario == miId ? Icons.check: Icons.fiber_manual_record, 
                         size: 15.0, 
-                        color: !chat.miMensaje && chat.leido ? Colors.white : Colors.indigo[400]
+                        color: ultimoMensaje.idUsuario != miId && ultimoMensaje.leido ? Colors.white : Colors.indigo[400]
                         )
                     ],)
                   ],
@@ -113,4 +148,5 @@ Widget Chats() {
       )
     ),
   );
+}
 }
