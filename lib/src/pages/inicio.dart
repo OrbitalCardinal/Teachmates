@@ -5,15 +5,15 @@ class InicioPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size  = MediaQuery.of(context).size;
-    final double itemHeight = size.height / 4.80;
+    final double itemHeight = size.height / 4;
     final double itemWidth = size.width / 1.8;
     return Scaffold(
       appBar: _crearAppBar(),
       body: Container(
         child: GridView.count(
           padding: const EdgeInsets.all(20),
-          crossAxisSpacing: 15,
-          mainAxisSpacing: 15,
+          crossAxisSpacing: 20,
+          mainAxisSpacing: 20,
           childAspectRatio: (itemHeight/ itemWidth),
           crossAxisCount: 2,
           children: <Widget>[
