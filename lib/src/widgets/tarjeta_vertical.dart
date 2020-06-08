@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:teachmate/src/models/coloresMaterias.dart';
+import 'package:teachmate/src/models/materia_model.dart';
+import 'package:teachmate/src/models/usuario_model.dart';
+import 'package:teachmate/src/widgets/materia_sticker.dart';
 
-Widget crearTarjetaVertical() {
+
+Widget crearTarjetaVertical(UsuarioModel usuario) {
+    String materia;
+    for(var n in listaMaterias) {
+      if(usuario.id == n.idUsuario) {
+        materia = n.nombreMateria;
+      }
+    }
     return Container(
       height: 300.0,
       decoration: BoxDecoration(
@@ -30,8 +41,8 @@ Widget crearTarjetaVertical() {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Gerardo Coronado', style: TextStyle(color: Colors.black, fontSize: 13.0, fontWeight: FontWeight.bold ),),
-                    Text('Estudiante', style: TextStyle(color: Colors.black, fontSize: 12.0, fontWeight: FontWeight.w300 ))
+                    Text(usuario.nombre, style: TextStyle(color: Colors.black, fontSize: 13.0, fontWeight: FontWeight.bold ),),
+                    Text(usuario.ocupacion, style: TextStyle(color: Colors.black, fontSize: 12.0, fontWeight: FontWeight.w300 ))
                   ],
                 ),
               ),
@@ -45,17 +56,8 @@ Widget crearTarjetaVertical() {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    color: Colors.blue[600],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(5.5),
-                    child: Text('Informática', style: TextStyle(color: Colors.white, fontSize: 10.0, fontWeight: FontWeight.w500),),
-                  )
-                ),
-                Text('4.5 ★', style: TextStyle(color: Colors.black, fontSize: 14.0))
+                materiaSticker(materia),
+                Text(usuario.puntuacionAsesor.toString() + '★', style: TextStyle(color: Colors.black, fontSize: 14.0))
               ],
             ),
           )

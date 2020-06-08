@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "202584249910",
+    "firebase_url": "https://teachmates-3f64e.firebaseio.com",
+    "project_id": "teachmates-3f64e",
+    "storage_bucket": "teachmates-3f64e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:202584249910:android:0e9145fc7c811b8fc3aa97",
+        "android_client_info": {
+          "package_name": "com.example.teachmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "202584249910-e9vf1rea2h34leqtkcqttqjh9eqmihmj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYSn2oOMP5wqKUIpIg5o1YOivxI7cCdoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "202584249910-e9vf1rea2h34leqtkcqttqjh9eqmihmj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

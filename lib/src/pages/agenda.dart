@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teachmate/src/models/asesoria_model.dart';
 import 'package:teachmate/src/widgets/tarjeta_horizontal.dart';
 
 class AgendaPage extends StatelessWidget {
@@ -11,18 +12,16 @@ class AgendaPage extends StatelessWidget {
       appBar: _crearAppBar(),
       body: Container(
         child: GridView.count(
-          childAspectRatio: (itemHeight / itemWidth),
-          crossAxisCount: 1,
-          padding: const EdgeInsets.all(15),
-          crossAxisSpacing: 10,
+          padding: const EdgeInsets.all(20),
+          crossAxisSpacing: 15,
           mainAxisSpacing: 15,
-          children: <Widget>[
-            crearTartejaHorizontal(),
-            crearTartejaHorizontal(),
-            crearTartejaHorizontal(),
-            crearTartejaHorizontal(),
-          ],
-        )
+          childAspectRatio: (itemHeight/ itemWidth),
+          crossAxisCount: 1,
+          children: List.generate(asesorias.length, (index) {
+            return crearTarjetaHorizontal();
+          }
+        ),
+      )
       )
     );
   }
