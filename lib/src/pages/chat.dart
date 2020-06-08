@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:teachmate/src/models/chat_model.dart';
+import 'package:teachmate/src/pages/agendar.dart';
 
 class ChatPage extends StatefulWidget {
   final String usuario;
@@ -70,7 +71,7 @@ class _ChatPageState extends State<ChatPage> {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
               color: Colors.green,
               onPressed: () {
-              
+              Navigator.push(context, MaterialPageRoute(builder: (_) => AgendarPage(asesor: widget.usuario)));
             },),
           )
         ],
@@ -159,10 +160,6 @@ barraMensajes() {
               hintStyle: TextStyle(
                 color: Colors.grey[800],
                 fontStyle: FontStyle.italic,
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20.0),
-                borderSide: BorderSide(color: Colors.indigo[300])
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey[350]),
