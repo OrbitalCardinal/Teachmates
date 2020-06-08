@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 #Sun Jun 07 16:38:53 CDT 2020
 base.0=C\:\\Users\\Gerardo\\Desktop\\Teachmates\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+=======
+#Sat Jun 06 20:17:25 CDT 2020
+base.0=/home/orbital/Documentos/CODE/repos/Teachmates/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+>>>>>>> 4d7bdb97e5774c7b915489165621378de30aa394
 path.0=classes.dex
 renamed.0=classes.dex
