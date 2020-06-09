@@ -1,21 +1,62 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:teachmate/src/pages/agenda.dart';
 import 'package:teachmate/src/pages/cuenta.dart';
+import 'package:teachmate/src/pages/iniciarSesion.dart';
 import 'package:teachmate/src/pages/inicio.dart';
 import 'package:teachmate/src/pages/mensajes.dart';
+import 'package:teachmate/src/services/auth.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  HomePage({this.auth});
+  final BaseAuth auth;
 
   @override
+  _HomePageState createState() => _HomePageState();
+}
+
+enum AuthStatus {
+  notSignedIn,
+  signedIn
+}
+class _HomePageState extends State<HomePage> {
+  
+  AuthStatus authStatus = AuthStatus.notSignedIn;
+  String id;
+  Map<String, dynamic> usuarioInfo;
+  
+  initState() {
+    super.initState();
+    widget.auth.currentUser().then((userId) {
+      setState(() {
+       authStatus = userId == null ? AuthStatus.notSignedIn : AuthStatus.signedIn; 
+       id = userId;
+       Firestore.instance.collection('usuario').reference().where('id', isEqualTo: id).getDocuments().then((value) {
+          if(value.documents.isNotEmpty) {
+              usuarioInfo = value.documents[0].data;
+        }
+      });
+      });
+    });
+  }
+  
+  
+  @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => new _NavegacionModel(),
-      child: Scaffold(
-        body: _Paginas(),
-        bottomNavigationBar: _Navegacion(),
-   ),
-    );
+    switch(authStatus) {
+      case AuthStatus.notSignedIn:
+        return new IniciarSesionPage(auth: widget.auth);
+      case AuthStatus.signedIn:
+        return ChangeNotifierProvider(
+          create: (_) => new _NavegacionModel(),
+          child: Scaffold(
+            body: _Paginas(usuarioInfo: usuarioInfo),
+            bottomNavigationBar: _Navegacion(),
+          ),
+        );
+    }
+    
   }
 }
 
@@ -47,8 +88,15 @@ class _Navegacion extends StatelessWidget {
   }
 }
 
-class _Paginas extends StatelessWidget {
+class _Paginas extends StatefulWidget {
+  _Paginas({this.usuarioInfo});
+  Map<String, dynamic> usuarioInfo;
 
+  @override
+  __PaginasState createState() => __PaginasState();
+}
+
+class __PaginasState extends State<_Paginas> {
   @override
   Widget build(BuildContext context) {
 
@@ -60,10 +108,10 @@ class _Paginas extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       children: <Widget>[
 
-        InicioPage(),
-        AgendaPage(),
-        MensajesPage(),
-        CuentaPage(),
+        InicioPage(usuarioInfo: widget.usuarioInfo),
+        AgendaPage(usuarioInfo: widget.usuarioInfo),
+        MensajesPage(usuarioInfo: widget.usuarioInfo),
+        CuentaPage(usuarioInfo: widget.usuarioInfo),
 
       ],
     );
@@ -75,7 +123,6 @@ class _NavegacionModel with ChangeNotifier{
 
   int _paginaActual = 0;
   PageController _pageController = new PageController();
-
 
   int get paginaActual => this._paginaActual;
   

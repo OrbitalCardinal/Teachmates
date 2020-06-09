@@ -21,6 +21,7 @@ class _ChatPageState extends State<ChatPage> {
   ScrollController _controller = ScrollController();
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Container(
@@ -45,7 +46,7 @@ class _ChatPageState extends State<ChatPage> {
                   widget.sala.asesoria ? "Asesoría pendiente": "Sin asesoría agendada",
                   style: TextStyle(
                     color: widget.sala.asesoria ? Colors.green : Colors.grey, 
-                    fontSize: 14.0),
+                    fontSize: size.width*0.035),
                 ),
                 ],)    
               ],)         

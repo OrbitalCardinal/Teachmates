@@ -4,10 +4,14 @@ import 'package:teachmate/src/models/mensaje_model.dart';
 import 'package:teachmate/src/models/salaChat_model.dart';
 import 'package:teachmate/src/models/usuario_model.dart';
 import 'package:teachmate/src/pages/chat.dart';
+import 'package:teachmate/src/services/auth.dart';
+import 'package:teachmate/src/widgets/appBar.dart';
 
 
 
 class MensajesPage extends StatefulWidget {
+  MensajesPage({this.usuarioInfo});
+  Map<String, dynamic> usuarioInfo;
   @override
   _MensajesPageState createState() => _MensajesPageState();
   List<MensajeModel> listaMensajes = List.from(mensajes);
@@ -18,7 +22,7 @@ class _MensajesPageState extends State<MensajesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _crearAppBar(),
+      appBar: appBar(texto: "Chats", color: Colors.white, colorTexto: Colors.black),
       body: Center(
         child: Column(
           children: <Widget>[
@@ -29,20 +33,7 @@ class _MensajesPageState extends State<MensajesPage> {
     );
   }
 
-  Widget _crearAppBar() {
-    return PreferredSize(
-      child: AppBar(
-        elevation: 1.0,
-        backgroundColor: Colors.white,
-        title: Container(
-          child: Text('Chats', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 25.0))
-        ),
-      ),
-      preferredSize: Size.fromHeight(60.0)
-    );
-  }
-
-  Widget Chats(List<MensajeModel> mensajes) {
+Widget Chats(List<MensajeModel> mensajes) {
   return Expanded(
       child: Container(
       height: 300.0,

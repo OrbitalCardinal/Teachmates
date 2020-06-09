@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:teachmate/src/bloc/provider.dart';
 import 'package:teachmate/src/pages/home.dart';
-import 'package:teachmate/src/pages/login.dart';
+import 'package:teachmate/src/pages/iniciarSesion.dart';
 import 'package:teachmate/src/pages/registro.dart';
 import 'package:teachmate/src/preferencias_usuario/preferencias_usuario.dart';
+import 'package:teachmate/src/services/auth.dart';
  
 void main() async { 
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,11 +25,11 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Teachmates',
-        initialRoute: auth,
+        initialRoute: 'iniciarSesion',
         routes: {
-          'login'    : (BuildContext context) => LoginPage(),
+          'iniciarSesion': (BuildContext context) => IniciarSesionPage(auth: Auth()),
           'registro' : (BuildContext context) => RegistroPage(),
-          'home'     : (BuildContext context) => HomePage()
+          'home'     : (BuildContext context) => HomePage(auth: Auth())
         },
       ),
     );

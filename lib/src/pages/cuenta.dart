@@ -1,9 +1,20 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:teachmate/src/models/materia_model.dart';
+import 'package:teachmate/src/services/auth.dart';
 import 'package:teachmate/src/widgets/materia_sticker.dart';
 
 
-class CuentaPage extends StatelessWidget {
+class CuentaPage extends StatefulWidget {
+  CuentaPage({this.usuarioInfo});
+  Map<String, dynamic> usuarioInfo;
+
+  @override
+  _CuentaPageState createState() => _CuentaPageState();
+}
+
+class _CuentaPageState extends State<CuentaPage> {  
   @override
   Widget build(BuildContext context) {
     String miId = "1";
@@ -61,7 +72,7 @@ class CuentaPage extends StatelessWidget {
                   Column(
                     children: <Widget>[
                       Text(
-                        "Gerardo Coronado",
+                        widget.usuarioInfo.toString(),
                         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                       ),
                     ],
@@ -79,7 +90,7 @@ class CuentaPage extends StatelessWidget {
                           style: TextStyle(color: Colors.red),
                           ),
                         onPressed: () {
-                          Navigator.pushReplacementNamed(context, 'login');
+                          Navigator.pushReplacementNamed(context, 'iniciarSesion');
                         }
                     ),
                     Row(
@@ -157,10 +168,11 @@ class CuentaPage extends StatelessWidget {
       ),      
     );
   }
-  
+
   Widget _crearAppBar() {
     return PreferredSize(
       child: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 1.0,
         backgroundColor: Colors.indigo[300],
         title: Container(

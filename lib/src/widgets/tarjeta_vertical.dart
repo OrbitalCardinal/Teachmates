@@ -31,7 +31,7 @@ Widget crearTarjetaVertical(UsuarioModel usuario) {
             padding: const EdgeInsets.all(7.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
-              child: Image.network('https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-9/55536510_2270410696612912_6627672482381824000_o.jpg?_nc_cat=102&_nc_sid=174925&_nc_oc=AQm-daHL314zIv5h4RgY7fzERxtyq069fCkNJCvHrrepy8w94OhMGzivp2w0yvSsoXM&_nc_ht=scontent-mia3-2.xx&oh=7768855d3938fa5a42d31af4bff0ab37&oe=5F03711B', height: 135.0, width: 135.0,),
+              child: Image.network(usuario.urlPhoto, height: 120.0, width: 135.0,),
             ),
           ),
           Row(
