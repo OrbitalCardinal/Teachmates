@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:teachmate/src/models/coloresMaterias.dart';
 import 'package:teachmate/src/models/materia_model.dart';
 import 'package:teachmate/src/models/usuario_model.dart';
 import 'package:teachmate/src/widgets/materia_sticker.dart';
@@ -31,7 +30,7 @@ Widget crearTarjetaVertical(UsuarioModel usuario) {
             padding: const EdgeInsets.all(7.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15.0),
-              child: Image.network(usuario.urlPhoto, height: 120.0, width: 135.0,),
+              child: Image.network(usuario.urlPhoto, height: 120.0, width: 135.0, fit: BoxFit.cover,),
             ),
           ),
           Row(

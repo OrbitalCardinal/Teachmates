@@ -14,7 +14,7 @@ class UsuarioModel {
     String ocupacion;
     double puntuacionAsesor;
     double puntuacionAsesorado;
-    
+    String info;
     UsuarioModel({
         this.id,
         this.correo,
@@ -23,7 +23,8 @@ class UsuarioModel {
         this.urlPhoto,
         this.ocupacion,
         this.puntuacionAsesor = 0,
-        this.puntuacionAsesorado = 0
+        this.puntuacionAsesorado = 0,
+        this.info
     });
 
     

@@ -32,11 +32,6 @@ class _HomePageState extends State<HomePage> {
       setState(() {
        authStatus = userId == null ? AuthStatus.notSignedIn : AuthStatus.signedIn; 
        id = userId;
-       Firestore.instance.collection('usuario').reference().where('id', isEqualTo: id).getDocuments().then((value) {
-          if(value.documents.isNotEmpty) {
-              usuarioInfo = value.documents[0].data;
-        }
-      });
       });
     });
   }
@@ -48,12 +43,21 @@ class _HomePageState extends State<HomePage> {
       case AuthStatus.notSignedIn:
         return new IniciarSesionPage(auth: widget.auth);
       case AuthStatus.signedIn:
-        return ChangeNotifierProvider(
-          create: (_) => new _NavegacionModel(),
-          child: Scaffold(
-            body: _Paginas(usuarioInfo: usuarioInfo),
-            bottomNavigationBar: _Navegacion(),
-          ),
+        return StreamBuilder(
+          stream: Firestore.instance.collection('usuario').reference().where('id', isEqualTo: id).snapshots(),
+          builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            if(!snapshot.hasData) {
+              return Center(child: CircularProgressIndicator(),);
+            }
+            usuarioInfo = snapshot.data.documents[0].data;
+            return ChangeNotifierProvider(
+              create: (_) => new _NavegacionModel(),
+              child: Scaffold(
+                body: _Paginas(usuarioInfo: usuarioInfo),
+                bottomNavigationBar: _Navegacion(),
+              ),
+            );
+          }
         );
     }
     

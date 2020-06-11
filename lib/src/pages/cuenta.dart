@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:teachmate/src/models/materia_model.dart';
-import 'package:teachmate/src/services/auth.dart';
+import 'package:teachmate/src/pages/editar.dart';
 import 'package:teachmate/src/widgets/materia_sticker.dart';
 
 
@@ -17,13 +16,6 @@ class CuentaPage extends StatefulWidget {
 class _CuentaPageState extends State<CuentaPage> {  
   @override
   Widget build(BuildContext context) {
-    String miId = "1";
-    List<String> materias = [];
-    for(var i in listaMaterias) {
-      if(i.idUsuario == miId) {
-        materias.add(i.nombreMateria);
-      }
-    }
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: _crearAppBar(),
@@ -50,8 +42,7 @@ class _CuentaPageState extends State<CuentaPage> {
                           Card(
                             child: CircleAvatar(
                               maxRadius: 55.0,
-                              child: 
-                                Image.network("https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-9/55536510_2270410696612912_6627672482381824000_o.jpg?_nc_cat=102&_nc_sid=174925&_nc_oc=AQm-daHL314zIv5h4RgY7fzERxtyq069fCkNJCvHrrepy8w94OhMGzivp2w0yvSsoXM&_nc_ht=scontent-mia3-2.xx&oh=7768855d3938fa5a42d31af4bff0ab37&oe=5F03711B", height: size.width*0.331, width: size.width*0.331,)
+                              backgroundImage: NetworkImage(widget.usuarioInfo['urlPhoto'].toString()),
                             ),
                             elevation: 5.0,
                             shape: CircleBorder(),
@@ -72,7 +63,7 @@ class _CuentaPageState extends State<CuentaPage> {
                   Column(
                     children: <Widget>[
                       Text(
-                        widget.usuarioInfo.toString(),
+                        widget.usuarioInfo['nombre'].toString(),
                         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                       ),
                     ],
@@ -104,7 +95,7 @@ class _CuentaPageState extends State<CuentaPage> {
                     Row(
                       children: <Widget>[
                         Text(
-                          "Estudiante",
+                          widget.usuarioInfo['ocupacion'] != null ? widget.usuarioInfo['ocupacion'] : " ",
                           style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.normal),
                           )
                       ],
@@ -118,11 +109,16 @@ class _CuentaPageState extends State<CuentaPage> {
                         )
                     ],),
                     Container(
-                      height: 70.0,
-                      child: Text(
-                        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 5,
+                      height: 50.0,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            widget.usuarioInfo['info'] != null ? widget.usuarioInfo['info'] : " ",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 5,
+                          ),
+                        ],
                       ),
                     ),
                     Row(
@@ -134,16 +130,25 @@ class _CuentaPageState extends State<CuentaPage> {
                       ],
                     ),
                     SizedBox(height: 10.0),
-                    Wrap(
-                      direction: Axis.horizontal, 
-                      children:
-                      List.generate(materias.length, (index) {
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 5, bottom: 5),
-                          child: materiaSticker(materias[index]),
-                        );                          
-                      })
-                      
+                    StreamBuilder(
+                      stream: Firestore.instance.collection('materias').where('idUsuario', isEqualTo: widget.usuarioInfo['id']).snapshots(),
+                      builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                        if(!snapshot.hasData) {
+                          return Center(child: CircularProgressIndicator(),);
+                        }
+                        var materiasSnap = snapshot.data.documents;
+                        return Wrap(
+                          direction: Axis.horizontal, 
+                          children:
+                          List.generate(materiasSnap.length, (index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 5, bottom: 5),
+                              child: materiaSticker(materiasSnap[index].data['nombre']),
+                            );                          
+                          })
+                          
+                        );
+                      }
                     ),
                     SizedBox(height: 15.0),
                     Row(
@@ -173,7 +178,7 @@ class _CuentaPageState extends State<CuentaPage> {
     return PreferredSize(
       child: AppBar(
         automaticallyImplyLeading: false,
-        elevation: 1.0,
+        elevation: 0.0,
         backgroundColor: Colors.indigo[300],
         title: Container(
           child: Text('Perfil', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 25.0))
@@ -182,7 +187,7 @@ class _CuentaPageState extends State<CuentaPage> {
           IconButton(
             icon: Icon(Icons.edit), 
             onPressed: () { 
-              
+              Navigator.push(context, MaterialPageRoute(builder: (_) => EditarPage(usuarioInfo: widget.usuarioInfo,)));
             },
           )
         ],

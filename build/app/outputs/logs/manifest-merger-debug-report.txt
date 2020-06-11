@@ -5,19 +5,19 @@ INJECTED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/mai
 INJECTED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/main/AndroidManifest.xml:1:1-30:12
 INJECTED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/main/AndroidManifest.xml:1:1-30:12
 MERGED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/main/AndroidManifest.xml:1:1-30:12
+MERGED from [:firebase_storage] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_auth] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_auth_web] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_auth_web/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:cloud_firestore] /home/orbital/Documentos/CODE/repos/Teachmates/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [:cloud_firestore_web] /home/orbital/Documentos/CODE/repos/Teachmates/build/cloud_firestore_web/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:firebase_database] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [:firebase_core_web] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_core_web/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:image_picker] /home/orbital/Documentos/CODE/repos/Teachmates/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-22:12
 MERGED from [:flutter_plugin_android_lifecycle] /home/orbital/Documentos/CODE/repos/Teachmates/build/flutter_plugin_android_lifecycle/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:shared_preferences] /home/orbital/Documentos/CODE/repos/Teachmates/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.firebase:firebase-auth:19.2.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/a83bb62cb43b672cf00b874e0ee6110c/firebase-auth-19.2.0/AndroidManifest.xml:17:1-42:12
+MERGED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:15:1-37:12
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:2:1-26:12
-MERGED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:15:1-36:12
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/516d475c610d5ee0701cc5d0e0043980/firebase-auth-interop-19.0.0/AndroidManifest.xml:2:1-10:12
 MERGED from [com.google.firebase:firebase-common:19.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/81b1f843349c19cf0e711aa3f6918492/jetified-firebase-common-19.3.0/AndroidManifest.xml:15:1-39:12
 MERGED from [com.google.android.gms:play-services-base:17.1.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/6eb14f512292913515d869914807ad40/play-services-base-17.1.0/AndroidManifest.xml:17:1-29:12
@@ -60,22 +60,22 @@ INJECTED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/deb
 		ADDED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/main/AndroidManifest.xml:1:11-69
 application
 ADDED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/main/AndroidManifest.xml:8:5-29:19
+MERGED from [:firebase_storage] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
+MERGED from [:firebase_storage] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_auth] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_auth] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:cloud_firestore] /home/orbital/Documentos/CODE/repos/Teachmates/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:cloud_firestore] /home/orbital/Documentos/CODE/repos/Teachmates/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
-MERGED from [:firebase_database] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
-MERGED from [:firebase_database] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:firebase_core] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-13:19
 MERGED from [:image_picker] /home/orbital/Documentos/CODE/repos/Teachmates/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-20:19
 MERGED from [:image_picker] /home/orbital/Documentos/CODE/repos/Teachmates/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-20:19
 MERGED from [com.google.firebase:firebase-auth:19.2.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/a83bb62cb43b672cf00b874e0ee6110c/firebase-auth-19.2.0/AndroidManifest.xml:23:5-40:19
 MERGED from [com.google.firebase:firebase-auth:19.2.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/a83bb62cb43b672cf00b874e0ee6110c/firebase-auth-19.2.0/AndroidManifest.xml:23:5-40:19
+MERGED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:29:5-35:19
+MERGED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:29:5-35:19
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:16:5-24:19
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:16:5-24:19
-MERGED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:28:5-34:19
-MERGED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:28:5-34:19
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/516d475c610d5ee0701cc5d0e0043980/firebase-auth-interop-19.0.0/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/516d475c610d5ee0701cc5d0e0043980/firebase-auth-interop-19.0.0/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.firebase:firebase-common:19.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/81b1f843349c19cf0e711aa3f6918492/jetified-firebase-common-19.3.0/AndroidManifest.xml:25:5-37:19
@@ -132,6 +132,8 @@ uses-sdk
 INJECTED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/main/AndroidManifest.xml
 INJECTED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/main/AndroidManifest.xml
+MERGED from [:firebase_storage] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:firebase_storage] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_auth_web] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_auth_web/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
@@ -140,8 +142,6 @@ MERGED from [:cloud_firestore] /home/orbital/Documentos/CODE/repos/Teachmates/bu
 MERGED from [:cloud_firestore] /home/orbital/Documentos/CODE/repos/Teachmates/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:cloud_firestore_web] /home/orbital/Documentos/CODE/repos/Teachmates/build/cloud_firestore_web/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:cloud_firestore_web] /home/orbital/Documentos/CODE/repos/Teachmates/build/cloud_firestore_web/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:firebase_database] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:firebase_database] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:firebase_core_web] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_core_web/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
@@ -154,10 +154,10 @@ MERGED from [:shared_preferences] /home/orbital/Documentos/CODE/repos/Teachmates
 MERGED from [:shared_preferences] /home/orbital/Documentos/CODE/repos/Teachmates/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth:19.2.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/a83bb62cb43b672cf00b874e0ee6110c/firebase-auth-19.2.0/AndroidManifest.xml:21:5-44
 MERGED from [com.google.firebase:firebase-auth:19.2.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/a83bb62cb43b672cf00b874e0ee6110c/firebase-auth-19.2.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:7:5-9:41
-MERGED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/516d475c610d5ee0701cc5d0e0043980/firebase-auth-interop-19.0.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/516d475c610d5ee0701cc5d0e0043980/firebase-auth-interop-19.0.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-common:19.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/81b1f843349c19cf0e711aa3f6918492/jetified-firebase-common-19.3.0/AndroidManifest.xml:20:5-22:41
@@ -214,26 +214,26 @@ INJECTED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/deb
 		INJECTED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/debug/AndroidManifest.xml
 uses-permission#android.permission.INTERNET
 ADDED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/debug/AndroidManifest.xml:6:5-66
+MERGED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:27:5-67
+MERGED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:27:5-67
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:14:5-67
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:14:5-67
-MERGED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:26:5-67
 	android:name
 		ADDED from /home/orbital/Documentos/CODE/repos/Teachmates/android/app/src/debug/AndroidManifest.xml:6:22-64
 service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [:firebase_auth] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
+ADDED from [:firebase_storage] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_auth] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
+MERGED from [:firebase_auth] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
 MERGED from [:cloud_firestore] /home/orbital/Documentos/CODE/repos/Teachmates/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
 MERGED from [:cloud_firestore] /home/orbital/Documentos/CODE/repos/Teachmates/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
-MERGED from [:firebase_database] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
-MERGED from [:firebase_database] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
 MERGED from [:firebase_core] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
 MERGED from [:firebase_core] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
 MERGED from [com.google.firebase:firebase-auth:19.2.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/a83bb62cb43b672cf00b874e0ee6110c/firebase-auth-19.2.0/AndroidManifest.xml:33:9-39:19
 MERGED from [com.google.firebase:firebase-auth:19.2.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/a83bb62cb43b672cf00b874e0ee6110c/firebase-auth-19.2.0/AndroidManifest.xml:33:9-39:19
+MERGED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:30:9-34:19
+MERGED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:30:9-34:19
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:17:9-23:19
 MERGED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:17:9-23:19
-MERGED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:29:9-33:19
-MERGED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:29:9-33:19
 MERGED from [com.google.firebase:firebase-common:19.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/81b1f843349c19cf0e711aa3f6918492/jetified-firebase-common-19.3.0/AndroidManifest.xml:32:9-36:35
 MERGED from [com.google.firebase:firebase-common:19.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/81b1f843349c19cf0e711aa3f6918492/jetified-firebase-common-19.3.0/AndroidManifest.xml:32:9-36:35
 	android:exported
@@ -243,7 +243,13 @@ MERGED from [com.google.firebase:firebase-common:19.3.0] /home/orbital/.gradle/c
 	android:directBootAware
 		ADDED from [com.google.firebase:firebase-common:19.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/81b1f843349c19cf0e711aa3f6918492/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
 	android:name
-		ADDED from [:firebase_auth] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-89
+		ADDED from [:firebase_storage] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-89
+meta-data#com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar
+ADDED from [:firebase_storage] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+	android:value
+		ADDED from [:firebase_storage] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+	android:name
+		ADDED from [:firebase_storage] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_storage/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-126
 meta-data#com.google.firebase.components:io.flutter.plugins.firebaseauth.FlutterFirebaseAppRegistrar
 ADDED from [:firebase_auth] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
 	android:value
@@ -256,12 +262,6 @@ ADDED from [:cloud_firestore] /home/orbital/Documentos/CODE/repos/Teachmates/bui
 		ADDED from [:cloud_firestore] /home/orbital/Documentos/CODE/repos/Teachmates/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:cloud_firestore] /home/orbital/Documentos/CODE/repos/Teachmates/build/cloud_firestore/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-133
-meta-data#com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar
-ADDED from [:firebase_database] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
-	android:value
-		ADDED from [:firebase_database] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
-	android:name
-		ADDED from [:firebase_database] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-127
 meta-data#com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseAppRegistrar
 ADDED from [:firebase_core] /home/orbital/Documentos/CODE/repos/Teachmates/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
 	android:value
@@ -315,25 +315,25 @@ ADDED from [com.google.firebase:firebase-auth:19.2.0] /home/orbital/.gradle/cach
 	android:name
 		ADDED from [com.google.firebase:firebase-auth:19.2.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/a83bb62cb43b672cf00b874e0ee6110c/firebase-auth-19.2.0/AndroidManifest.xml:37:17-109
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:13:5-79
-MERGED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:25:5-79
-MERGED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:25:5-79
+ADDED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:13:5-79
 MERGED from [io.grpc:grpc-android:1.21.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/34268753bded0b91ecc4a1af1815ce82/grpc-android-1.21.0/AndroidManifest.xml:11:5-79
 MERGED from [io.grpc:grpc-android:1.21.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/34268753bded0b91ecc4a1af1815ce82/grpc-android-1.21.0/AndroidManifest.xml:11:5-79
 	android:name
-		ADDED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:13:22-76
+		ADDED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:26:22-76
+meta-data#com.google.firebase.components:com.google.firebase.storage.StorageRegistrar
+ADDED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:31:13-33:85
+	android:value
+		ADDED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:33:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-storage:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/aa78a0655c5c3e9874ef15200ed10062/jetified-firebase-storage-17.0.0/AndroidManifest.xml:32:17-107
 meta-data#com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar
 ADDED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:20:13-22:85
 	android:value
 		ADDED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:22:17-82
 	android:name
 		ADDED from [com.google.firebase:firebase-firestore:21.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/76035ad74a584d7ce5ec5cfafc62e014/jetified-firebase-firestore-21.3.0/AndroidManifest.xml:21:17-111
-meta-data#com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar
-ADDED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:30:13-32:85
-	android:value
-		ADDED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:32:17-82
-	android:name
-		ADDED from [com.google.firebase:firebase-database:17.0.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/0c32e6aa7e91e1577cabf007ec2477bc/jetified-firebase-database-17.0.0/AndroidManifest.xml:31:17-109
 provider#com.google.firebase.provider.FirebaseInitProvider
 ADDED from [com.google.firebase:firebase-common:19.3.0] /home/orbital/.gradle/caches/transforms-2/files-2.1/81b1f843349c19cf0e711aa3f6918492/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
 	android:authorities

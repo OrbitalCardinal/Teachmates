@@ -25,7 +25,8 @@ class Auth implements BaseAuth {
         'ocupacion': '',
         'puntuacionAsesor': 0.1,
         'puntuacionAsesorado': 0.1,
-        'urlPhoto': ''
+        'urlPhoto': '',
+        'id': result.user.uid
       });
     return result.user.uid;
   }

@@ -4263,7 +4263,7 @@ firebase_auth_platform_interface
 firebase_auth_web
 firebase_core
 firebase_core_platform_interface
-firebase_database
+firebase_storage
 shared_preferences
 shared_preferences_platform_interface
 

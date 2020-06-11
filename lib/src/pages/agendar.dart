@@ -1,8 +1,18 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:teachmate/src/models/usuario_model.dart';
 
 class AgendarPage extends StatefulWidget {
-  final String asesor;
-  AgendarPage({this.asesor});
+  final UsuarioModel asesor;
+  Map<String, dynamic> usuarioInfo;
+  String salaId;
+  String sala2Id;
+  AgendarPage({
+    this.asesor,
+    this.usuarioInfo,
+    this.salaId,
+    this.sala2Id
+    });
   @override
   _AgendarPageState createState() => _AgendarPageState();
 }
@@ -56,10 +66,12 @@ class _AgendarPageState extends State<AgendarPage> {
 }
   
 
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     String hora = _hora.hour.toString() + ":" + _hora.minute.toString() + " " + _hora.period.toString().split("DayPeriod.")[1].toString();
     String fecha =_fecha.day.toString() + " de " + meses[_fecha.month - 1] + " " + _fecha.year.toString();
+    
     
     return Scaffold(
       appBar: _crearAppBar(),
@@ -68,7 +80,7 @@ class _AgendarPageState extends State<AgendarPage> {
           children: <Widget>[
             Container(
               color: Colors.indigo[300],
-              height: 250,
+              height: 220,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -77,9 +89,12 @@ class _AgendarPageState extends State<AgendarPage> {
                   children: <Widget>[
                   Container(
                     child: Column(children: <Widget>[
-                      CircleAvatar(radius: 70.0),
+                      CircleAvatar(
+                        radius: 60.0,
+                        backgroundImage: NetworkImage(widget.asesor.urlPhoto),
+                        ),
                       SizedBox(height: 10.0,),
-                      Text(widget.asesor, style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.bold ,color: Colors.white),)  ,
+                      Text(widget.asesor.nombre, style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.bold ,color: Colors.white),)  ,
                     ],),
                   ),
                   SizedBox(height: 10.0,),
@@ -113,9 +128,8 @@ class _AgendarPageState extends State<AgendarPage> {
       )
     );
   }
-}
-
-Widget _crearAppBar() {
+  
+  Widget _crearAppBar() {
     return PreferredSize(
       child: AppBar(
         iconTheme: IconThemeData(
@@ -131,7 +145,8 @@ Widget _crearAppBar() {
     );
 }
 
-Widget _informacion(fecha, hora) {
+  
+  Widget _informacion(fecha, hora) {
   return Container(
               margin: EdgeInsets.all(15.0),
               child: Column(
@@ -177,7 +192,7 @@ Widget _informacion(fecha, hora) {
                   ),
                   SizedBox(width: 7.0),
                   Text(
-                    "Matematicas",
+                    "Matematicas" ,
                     style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.w500, color: Colors.green)
                   )
                 ],),
@@ -192,6 +207,7 @@ Widget _informacion(fecha, hora) {
                 Row(children: <Widget>[
                   Expanded(
                     child: TextField(
+                      controller: controller,
                     keyboardType: TextInputType.multiline,
                     maxLines: null,
                     decoration: InputDecoration(
@@ -234,9 +250,38 @@ Widget _informacion(fecha, hora) {
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
                       color: Colors.green,
                       onPressed: () {
-                    },),
+                          Firestore.instance.collection('asesoria').add({
+                            'fecha': Timestamp.fromDate(_fecha),
+                            'idUsuario' : widget.asesor.id,
+                            'materia' : "Matematicas",
+                            'miId' : widget.usuarioInfo['id'],
+                            'nota' : controller.text
+                          }).then((ases) {
+                            Firestore.instance.collection('asesoria').add({
+                            'fecha': Timestamp.fromDate(_fecha),
+                            'idUsuario' : widget.usuarioInfo['id'],
+                            'materia' : "Matematicas",
+                            'miId' : widget.asesor.id,
+                            'nota' : controller.text
+                          }).then((value) {
+                            Firestore.instance.collection('salaChat').document(widget.salaId).updateData({
+                              'asesoria': true
+                            }).then((res) {
+                              Firestore.instance.collection('salaChat').document(widget.sala2Id).updateData({
+                                'asesoria': true
+                              }).then((finish) => Navigator.pop(context, [true, ases.documentID]));
+                              
+                            });
+                          });
+                            
+                          });
+                      },),
                   ],
                 ),
               ],)          
             );
 }
+}
+
+
+

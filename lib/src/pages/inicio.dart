@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:teachmate/src/models/usuario_model.dart';
+import 'package:teachmate/src/pages/asesor.dart';
 import 'package:teachmate/src/services/auth.dart';
 import 'package:teachmate/src/widgets/appBar.dart';
 import 'package:teachmate/src/widgets/tarjeta_vertical.dart';
@@ -27,6 +28,14 @@ class _InicioPageState extends State<InicioPage> {
                 if(!snapshot.hasData) {
                   return Center(child: CircularProgressIndicator(),);
                 }
+                
+                var usuariosFiltro = [];
+                
+                for(var i in snapshot.data.documents) {
+                  if(i.data['id'] != widget.usuarioInfo['id']) {
+                    usuariosFiltro.add(i);                  
+                  }
+                }
                 List<DocumentSnapshot> docs = snapshot.data.documents;
                 return Container(
                   child: GridView.count(
@@ -35,13 +44,17 @@ class _InicioPageState extends State<InicioPage> {
                     mainAxisSpacing: 15,
                     childAspectRatio: (itemHeight/ itemWidth),
                     crossAxisCount: 2,
-                    children: List.generate(docs.length, (index) {
-                      Map<String, dynamic> data = docs[index].data;
-                      UsuarioModel usuario = UsuarioModel(id: data['id'], correo: data['correo'], nombre: data['nombre'], urlPhoto: data['urlPhoto'], ocupacion: data['ocupacion'], puntuacionAsesor: data['puntuacionAsesor'], puntuacionAsesorado: data['puntuacionAsesorado']);
-                      return crearTarjetaVertical(usuario);
-                                }
-                              ),
+                    children: List.generate(usuariosFiltro.length, (index) {
+                      Map<String, dynamic> data = usuariosFiltro[index].data;
+                      UsuarioModel usuario = UsuarioModel(id: data['id'], correo: data['correo'], nombre: data['nombre'], urlPhoto: data['urlPhoto'], ocupacion: data['ocupacion'], puntuacionAsesor: data['puntuacionAsesor'], puntuacionAsesorado: data['puntuacionAsesorado'], info: data['info']);
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (_) => AsesorPage(asesor: usuario, usuarioInfo: widget.usuarioInfo,)));
+                        },
+                        child: crearTarjetaVertical(usuario));
+                       }
                       ),
+                    ),
                   );
               } 
       )

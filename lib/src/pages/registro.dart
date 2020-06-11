@@ -79,7 +79,7 @@ class RegistroPage extends StatelessWidget {
 
                    FlatButton(
             child: Text('¿Ya tienes cuenta? Inicia sesión'),
-            onPressed: ()=> Navigator.pushReplacementNamed(context, 'login'),
+            onPressed: () => Navigator.pop(context),
           ),
             SizedBox( height: 10.0 )
           ],

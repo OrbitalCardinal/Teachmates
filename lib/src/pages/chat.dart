@@ -1,22 +1,30 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:teachmate/src/models/mensaje_model.dart';
 import 'package:teachmate/src/models/salaChat_model.dart';
+import 'package:teachmate/src/models/usuario_model.dart';
 import 'package:teachmate/src/pages/agendar.dart';
 
 class ChatPage extends StatefulWidget {
-  final String usuario;
+  final UsuarioModel usuario;
+  final String urlUsuario;
   final List<MensajeModel> listaMensajes;
   final SalaChatModel sala;
+  final String sala2Id;
+  String asesoriaId;
+  Map<String, dynamic> usuarioInfo;
   ChatPage({
     this.usuario,
     this.listaMensajes,
-    this.sala
+    this.sala,
+    this.usuarioInfo,
+    this.urlUsuario,
+    this.sala2Id
     });
   
   @override
   _ChatPageState createState() => _ChatPageState();
 }
-String miId = "1";
 class _ChatPageState extends State<ChatPage> {  
   ScrollController _controller = ScrollController();
   @override
@@ -29,13 +37,16 @@ class _ChatPageState extends State<ChatPage> {
             children: <Widget>[
               Row(
                 children: <Widget>[
-                CircleAvatar(radius: 20.0),
+                CircleAvatar(
+                  radius: 20.0,
+                  backgroundImage: NetworkImage(widget.urlUsuario),
+                  ),
                 SizedBox(width: 10.0),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                   Text(
-                  widget.usuario,
+                  widget.usuario.nombre,
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 17.0,
@@ -82,32 +93,45 @@ class _ChatPageState extends State<ChatPage> {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
               color: widget.sala.asesoria ? Colors.red: Colors.green,
               onPressed: () {
-                widget.sala.asesoria ? _dialogoCancelacion() :Navigator.push(context, MaterialPageRoute(builder: (_) => AgendarPage(asesor: widget.usuario)));
+                widget.sala.asesoria ? _dialogoCancelacion() :Navigator.push(context, MaterialPageRoute(builder: (_) => AgendarPage(asesor: widget.usuario, usuarioInfo: widget.usuarioInfo, salaId: widget.sala.id, sala2Id: widget.sala2Id,))).then((asesoria) {
+                  setState(() {
+                    widget.sala.asesoria = asesoria[0];
+                    widget.asesoriaId = asesoria[1];
+                  });
+                } );
             },),
           )
         ],
       ),
-      body: Column(
-        children: <Widget>[
-          Expanded(
-              child: Container(
-                decoration: BoxDecoration(color: Colors.white),
-                child: ClipRRect(
-                    child: ListView.builder(
-                      reverse: true,
-                      controller: _controller,
-                      padding: EdgeInsets.only(top: 15.0),
-                      itemCount: widget.listaMensajes.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        final MensajeModel mensaje = widget.listaMensajes[widget.listaMensajes.length-1-index];
-                        return cajaMensaje(mensaje);
-                      },
-                  ),
+      body: StreamBuilder(
+        stream: Firestore.instance.collection('mensaje').snapshots(),
+        builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if(!snapshot.hasData) {
+            return Center(child: CircularProgressIndicator(),);
+          }
+          return Column(
+            children: <Widget>[
+              Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(color: Colors.white),
+                    child: ClipRRect(
+                        child: ListView.builder(
+                          reverse: true,
+                          controller: _controller,
+                          padding: EdgeInsets.only(top: 15.0),
+                          itemCount: widget.listaMensajes.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            final MensajeModel mensaje = widget.listaMensajes[widget.listaMensajes.length-1-index];
+                            return cajaMensaje(mensaje);
+                          },
+                      ),
+                    ),
                 ),
-            ),
-          ),
-          barraMensajes(widget.listaMensajes, widget.sala)
-        ],
+              ),
+              barraMensajes(widget.listaMensajes, widget.sala)
+            ],
+          );
+        }
       ),
       
     );
@@ -115,11 +139,11 @@ class _ChatPageState extends State<ChatPage> {
   
   cajaMensaje(MensajeModel mensaje) {
   return Container(
-    margin: miId == mensaje.idUsuario ? EdgeInsets.only(top: 8.0, bottom: 8.0, left: 80.0, right: 10.0): EdgeInsets.only(top: 8.0, bottom: 8.0, right: 80.0, left: 10.0),
+    margin: widget.usuarioInfo['id'] == mensaje.idUsuario ? EdgeInsets.only(top: 8.0, bottom: 8.0, left: 80.0, right: 10.0): EdgeInsets.only(top: 8.0, bottom: 8.0, right: 80.0, left: 10.0),
     padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.all(Radius.circular(13.0)),
-        color: miId != mensaje.idUsuario ? Colors.indigo[400] : Colors.grey[300],
+        color: widget.usuarioInfo['id'] != mensaje.idUsuario ? Colors.indigo[400] : Colors.grey[300],
     ),
     child: Column(
       children: <Widget>[
@@ -128,7 +152,7 @@ class _ChatPageState extends State<ChatPage> {
             Text(
               mensaje.texto,
               style: TextStyle(
-                color: miId == mensaje.idUsuario ? Colors.black : Colors.white,
+                color: widget.usuarioInfo['id'] == mensaje.idUsuario ? Colors.black : Colors.white,
                 fontSize: 15.0
                 ) 
               ),
@@ -137,12 +161,12 @@ class _ChatPageState extends State<ChatPage> {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
-            Text(
-              mensaje.fecha.hour.toString() + ':' + mensaje.fecha.minute.toString(),
-              style: TextStyle(
-                color: miId == mensaje.idUsuario ? Colors.black : Colors.white
-                ) 
-              ),
+            // Text(
+            //   mensaje.fecha.hour.toString() + ':' + mensaje.fecha.minute.toString(),
+            //   style: TextStyle(
+            //     color: widget.usuarioInfo['id'] == mensaje.idUsuario ? Colors.black : Colors.white
+            //     ) 
+            //   ),
           ],
         ),
       ],
@@ -188,11 +212,26 @@ barraMensajes(List<MensajeModel> listaMensajes, SalaChatModel sala) {
           color: Colors.indigo[300],
           iconSize: 30.0,
           onPressed: () {
+            String texto = controller.text;
+            Firestore.instance.collection('mensaje').add({
+              'fecha': Timestamp.now(), 
+              'idSalaChat': widget.sala.id,
+              'idUsuario': widget.usuarioInfo['id'], 
+              'leido': false, 
+              'texto': texto
+            }).then((first) {
+              Firestore.instance.collection('mensaje').add({
+                'fecha': Timestamp.now(), 
+                'idSalaChat': widget.sala2Id,
+                'idUsuario': widget.usuarioInfo['id'], 
+                'leido': false, 
+                'texto': texto
+              });
+            });
             setState(() {
-              listaMensajes.add(MensajeModel(idSalaChat: sala.id, texto: controller.text, fecha: DateTime.now(), idUsuario: miId, leido: false));              
-              _controller.jumpTo(_controller.position.minScrollExtent);
-            });  
-            controller.clear();
+              widget.listaMensajes.add(MensajeModel(fecha: Timestamp.now(), idSalaChat: widget.sala.id, idUsuario: widget.usuarioInfo['id'], leido: false, texto: controller.text));
+              controller.clear();
+            });
           },),
       ],
     )
@@ -216,7 +255,7 @@ barraMensajes(List<MensajeModel> listaMensajes, SalaChatModel sala) {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
+                  Navigator.of(context).pop();
               },
             ),
             RaisedButton(
@@ -228,9 +267,55 @@ barraMensajes(List<MensajeModel> listaMensajes, SalaChatModel sala) {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pop();
-                setState(() {
-                  widget.sala.asesoria = false;
+                Firestore.instance.collection('salaChat').getDocuments().then((value) {
+                  var salaId;
+                  for(var i in value.documents) {
+                    if(i.data['miId'] == widget.usuarioInfo['id'] && i.data['idUsuario'] == widget.usuario.id) {
+                      salaId = i.documentID;
+                      break;
+                    }
+                  }
+                  
+                  Firestore.instance.collection('salaChat').document(salaId).updateData({
+                    'asesoria' : false
+                  }).then((onUpdate) {
+                    Firestore.instance.collection('asesoria').getDocuments().then((value) {
+                      String asesoriaId;
+                      for(var i in value.documents) {
+                        if(i.data['miId'] == widget.usuarioInfo['id'] && i.data['idUsuario'] == widget.usuario.id) {
+                          asesoriaId = i.documentID;
+                          break;
+                        }
+                      }
+                      
+                      Firestore.instance.collection('asesoria').document(asesoriaId).delete().then((value) {
+                        setState(() {
+                          Firestore.instance.collection('asesoria').getDocuments().then((value) {
+                            String asesoriaId;
+                            for(var i in value.documents) {
+                              if(i.data['miId'] ==  widget.usuario.id && i.data['idUsuario'] == widget.usuarioInfo['id']) {
+                                asesoriaId = i.documentID;
+                                break;
+                              }
+                            }
+                            Firestore.instance.collection('asesoria').document(asesoriaId).delete().then((value) {
+                              Firestore.instance.collection('salaChat').document(widget.sala2Id).updateData({
+                                'asesoria': false
+                              }).then((value){  
+                                setState(() {
+                                  widget.sala.asesoria = false;
+                                  Navigator.of(context).pop();
+                                });
+                              });
+                            });
+                            
+                          });
+                        });
+                      });
+                      
+                    });  
+                  });
+                  
                 });
               },
             )

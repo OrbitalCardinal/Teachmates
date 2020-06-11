@@ -14,13 +14,6 @@ Widget appBar({String texto, var color, var colorTexto}) {
             ],
           )
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.search, color: Color(0xff5B5B5B), size: 30.0,),
-            onPressed: () {
-            }
-          )
-        ],
       ), 
       preferredSize: Size.fromHeight(60.0)
     );
